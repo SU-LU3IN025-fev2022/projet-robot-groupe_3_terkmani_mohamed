@@ -79,6 +79,49 @@ def step(robotId, sensors):
         translation = 1 * sensors["sensor_front"]["distance"]
         rotation = (-1) * sensors["sensor_front_left"]["distance"] + (1) * sensors["sensor_front_right"]["distance"]
 
+    # sensor back
+    if sensors["sensor_back"]["isRobot"] == True:
+        if sensors["sensor_back"]["isSameTeam"] == False:
+            enemy_detected_by_front_sensor = True # exemple de détection d'un robot de l'équipe adversaire (ne sert à rien)
+
+            translation = 1 * sensors["sensor_back"]["distance"]
+            rotation = (1) * sensors["sensor_back_left"]["distance"] + (-1) * sensors["sensor_back_right"]["distance"]
+
+        else :
+            translation = 1 * sensors["sensor_back"]["distance"]
+            rotation = (-1) * sensors["sensor_back_left"]["distance"] + (1) * sensors["sensor_back_right"]["distance"]
+
+
+
+    # sensor back left
+    elif sensors["sensor_back_left"]["isRobot"] == True:
+        if sensors["sensor_back_left"]["isSameTeam"] == False:
+            enemy_detected_by_front_sensor = True
+
+            translation = 1 * sensors["sensor_back"]["distance"]
+            rotation = (1) * sensors["sensor_back_left"]["distance"] + (-1) * sensors["sensor_back_right"]["distance"]
+
+        else :
+            translation = 1 * sensors["sensor_back"]["distance"]
+            rotation = (-1) * sensors["sensor_back_left"]["distance"] + (1) * sensors["sensor_back_right"]["distance"]
+
+
+
+    # sensor back right
+    elif sensors["sensor_back_right"]["isRobot"] == True:
+        if sensors["sensor_back_right"]["isSameTeam"] == False:
+            enemy_detected_by_front_sensor = True
+
+            translation = 1 * sensors["sensor_back"]["distance"]
+            rotation = (1) * sensors["sensor_back_left"]["distance"] + (-1) * sensors["sensor_back_right"]["distance"]
+
+        else :
+            translation = 1 * sensors["sensor_back"]["distance"]
+            rotation = (-1) * sensors["sensor_back_left"]["distance"] + (1) * sensors["sensor_back_right"]["distance"]
+
+
+
+
     translation = max(-1, min(translation, 1))
     rotation = max(-1, min(rotation, 1))
 
